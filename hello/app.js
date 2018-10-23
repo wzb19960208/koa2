@@ -47,6 +47,39 @@ router.post('/sign-in',async (ctx,next)=>{
     }
 });
 
+
+router.get('/test',async ctx=>{
+    let a = await new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(1);
+        },2000);
+    });
+
+    console.log(a);
+
+    let b = await new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(2);
+        },2000);
+    });
+
+    console.log(b);
+
+    let c = await new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(3);
+        },2000);
+    });
+
+    console.log(c);
+
+    let result = a+b+c;
+
+    ctx.body = {
+        result
+    }
+});
+
   
 app.listen(3000);
 
