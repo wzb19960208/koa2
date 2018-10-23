@@ -5,6 +5,11 @@ const router = require('koa-router')();
 // 解析请求信息的
 const bodyParser = require('koa-bodyparser');
 
+const pv = require('../middle/koa-pv');
+
+app.use(pv());
+
+
 
 //中间件
 app.use(async (ctx,next) => {
@@ -12,6 +17,8 @@ app.use(async (ctx,next) => {
    console.log(ctx.request.url);
    await next();
 });
+
+
 
 // 必须在router之前引入
 app.use(bodyParser());
