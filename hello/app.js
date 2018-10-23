@@ -7,6 +7,13 @@ const bodyParser = require('koa-bodyparser');
 
 const pv = require('../middle/koa-pv');
 
+const users = require('../routes/user');
+const school = require('../routes/school');
+
+// 因为返回的是router
+app.use(users.routes(),users.allowedMethods());
+app.use(school.routes(),school.allowedMethods());
+
 app.use(pv());
 
 
